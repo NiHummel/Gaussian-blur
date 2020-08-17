@@ -34,6 +34,7 @@ def main():
     print(f'image processing start: {time.time()}')
 
     image14, image24, row14, row24 = [], [], [], []
+    norm14, norm24 = sum(filter14), sum(filter24)
     buffer = []
     next_row = iter(image)
     for i in range(3):
@@ -49,8 +50,8 @@ def main():
                     cur = buffer[i + x][j + y]
                     t14 += filter14[xy] * cur
                     t24 += filter24[xy] * cur
-            row14.append(t14 // 10000)
-            row24.append(t24 // 10000)
+            row14.append(t14 // norm14)
+            row24.append(t24 // norm24)
         image14.append(row14)
         image24.append(row24)
         buffer.append(next(next_row))
@@ -64,16 +65,16 @@ def main():
                 cur = buffer[xy // 5][xy % 5 - 2]
                 t14 += filter14[xy] * cur
                 t24 += filter24[xy] * cur
-        row14.append(t14 // 10000)
-        row24.append(t24 // 10000)
+        row14.append(t14 // norm14)
+        row24.append(t24 // norm24)
         t14, t24 = 0, 0
         for xy in range(0, 25):
             if 1 <= xy % 5:
                 cur = buffer[xy // 5][xy % 5 - 1]
                 t14 += filter14[xy] * cur
                 t24 += filter24[xy] * cur
-        row14.append(t14 // 10000)
-        row24.append(t24 // 10000)
+        row14.append(t14 // norm14)
+        row24.append(t24 // norm24)
 
         for j in range(2, 1918):
             t14, t24 = 0, 0
@@ -81,8 +82,8 @@ def main():
                 cur = buffer[xy // 5][j + xy % 5 - 2]
                 t14 += filter14[xy] * cur
                 t24 += filter24[xy] * cur
-            row14.append(t14 // 10000)
-            row24.append(t24 // 10000)
+            row14.append(t14 // norm14)
+            row24.append(t24 // norm24)
 
         t14, t24 = 0, 0
         for xy in range(0, 25):
@@ -90,16 +91,16 @@ def main():
                 cur = buffer[xy // 5][1916 + xy % 5]
                 t14 += filter14[xy] * cur
                 t24 += filter24[xy] * cur
-        row14.append(t14 // 10000)
-        row24.append(t24 // 10000)
+        row14.append(t14 // norm14)
+        row24.append(t24 // norm24)
         t14, t24 = 0, 0
         for xy in range(0, 25):
             if xy % 5 < 3:
                 cur = buffer[xy // 5][1917 + xy % 5]
                 t14 += filter14[xy] * cur
                 t24 += filter24[xy] * cur
-        row14.append(t14 // 10000)
-        row24.append(t24 // 10000)
+        row14.append(t14 // norm14)
+        row24.append(t24 // norm24)
 
         image14.append(row14)
         image24.append(row24)
@@ -117,8 +118,8 @@ def main():
                     cur = buffer[x + 2][j + y]
                     t14 += filter14[xy] * cur
                     t24 += filter24[xy] * cur
-            row14.append(t14 // 10000)
-            row24.append(t24 // 10000)
+            row14.append(t14 // norm14)
+            row24.append(t24 // norm24)
         image14.append(row14)
         image24.append(row24)
         for r in range(4):
@@ -133,11 +134,4 @@ def main():
 
 
 if __name__ == '__main__':
-    # main()
-    '''print(time.time())
-    t = 0
-    for i in range(1080):
-        for j in range(1920):
-            for x in range(25):
-                    t = t + 1
-    print(time.time())'''
+    main()
