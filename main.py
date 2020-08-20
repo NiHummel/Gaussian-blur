@@ -38,7 +38,7 @@ def gaussian_filter(image, sigma=1):
 
 
 def main():
-    assert len(sys.argv) - 1 == 1, 'Wrong amount of arguments. \nOne argument was expected: source image name.'
+    assert len(sys.argv) - 1 == 1, 'Wrong amount of arguments. \nOne argument was expected: source image pathname.'
 
     img_name = sys.argv[1]
 
