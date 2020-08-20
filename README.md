@@ -4,8 +4,7 @@
 `pip install opencv-python`
 Для запуска программы нужно передать в качестве аргумента командной строки название исходного изображений или путь до него.
 #### Реализация
-![Original photo](https://github.com/NiHummel/Gaussian-blur/blob/master/forest.jpg)
-![Grayscale photo](https://github.com/NiHummel/Gaussian-blur/blob/master/grayscale.jpg)
+![Original photo](https://github.com/NiHummel/Gaussian-blur/blob/master/lenna.jpg)![Grayscale photo](https://github.com/NiHummel/Gaussian-blur/blob/master/grayscale.jpg)
 ![After sigma=1 Blur](https://github.com/NiHummel/Gaussian-blur/blob/master/blurred1.jpg)
 ![After sigma=2 Blur](https://github.com/NiHummel/Gaussian-blur/blob/master/blurred2.jpg)
 В данной реализации использовались вычисления только в целых числах. Для этого было принято решение предпосчитать ядро в целых числах с вынесением общего множителя, сохраняя отношение между элементами.
