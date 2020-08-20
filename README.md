@@ -4,9 +4,10 @@
 `pip install opencv-python`
 Для запуска программы нужно передать в качестве аргумента командной строки название исходного изображений или путь до него.
 #### Реализация
-![Original photo](https://github.com/NiHummel/Gaussian-blur/blob/master/lenna.jpg)![Grayscale photo](https://github.com/NiHummel/Gaussian-blur/blob/master/grayscale.jpg)
-![After sigma=1 Blur](https://github.com/NiHummel/Gaussian-blur/blob/master/blurred1.jpg)
-![After sigma=2 Blur](https://github.com/NiHummel/Gaussian-blur/blob/master/blurred2.jpg)
+![Original photo](lenna.jpg)
+![Grayscale photo](grayscale.jpg)
+![After sigma=1 Blur](blurred1.jpg)
+![After sigma=2 Blur](blurred2.jpg)
 В данной реализации использовались вычисления только в целых числах. Для этого было принято решение предпосчитать ядро в целых числах с вынесением общего множителя, сохраняя отношение между элементами.
 
 Благодаря свойству сепарабельности (сохранение отношения между элементами строки\столбца), фильтр Гаусса с ядром 5x5 можно свести до двух проходов 1D фильтров 5x1 и 1x5 (порядок не важен).
